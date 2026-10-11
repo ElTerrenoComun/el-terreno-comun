@@ -1,0 +1,169 @@
+/* El Terreno Común — Diario. Hoja de estilos única, ligera, sin frameworks. */
+
+:root{
+  --paper: #f2ecda;
+  --paper-2: #ece4cd;
+  --ink: #1d1a14;
+  --ink-soft: #46412f;
+  --rule: #1d1a14;
+  --rule-soft: #b9ae8e;
+  --raiz: #7a2e20;
+  --link: #1d1a14;
+  --max: 920px;
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper: #16140f;
+    --paper-2: #1c1912;
+    --ink: #ece4cd;
+    --ink-soft: #c8bd9e;
+    --rule: #ece4cd;
+    --rule-soft: #4a4330;
+    --raiz: #d98a74;
+    --link: #ece4cd;
+  }
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Source Serif 4', Georgia, 'Times New Roman', serif;
+  font-size:18px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.5;
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(0,0,0,.04), transparent 60%),
+    radial-gradient(ellipse at 90% 90%, rgba(0,0,0,.05), transparent 55%);
+}
+@media (prefers-color-scheme: dark){
+  body::before{opacity:.35}
+}
+
+a{color:var(--link); text-decoration-thickness: 1px}
+a:hover{color:var(--raiz)}
+
+.wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+
+/* Cabecera / masthead */
+.masthead{padding:34px 20px 18px; text-align:center; border-bottom:3px solid var(--rule)}
+.masthead .top-rule{height:1px; background:var(--rule-soft); max-width:var(--max); margin:0 auto 14px}
+.masthead .kicker-row{
+  display:flex; justify-content:space-between; align-items:baseline;
+  max-width:var(--max); margin:0 auto 10px;
+  font-family:'Source Serif 4', serif; font-size:12px; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--ink-soft);
+}
+.masthead h1{
+  margin:4px 0 6px;
+  font-family:'Playfair Display', Georgia, serif;
+  font-weight:900;
+  font-size:clamp(34px, 7vw, 62px);
+  letter-spacing:.01em;
+  text-decoration:none;
+  color:var(--ink);
+}
+.masthead h1 a{color:inherit; text-decoration:none}
+.masthead .tagline{
+  font-style:italic; font-size:14px; color:var(--ink-soft); margin:0 0 14px;
+}
+.masthead nav{
+  display:flex; gap:18px; justify-content:center; flex-wrap:wrap;
+  font-size:13px; letter-spacing:.04em; text-transform:uppercase;
+  border-top:1px solid var(--rule-soft); padding-top:10px;
+}
+.masthead nav a{text-decoration:none}
+
+/* Portada */
+main{padding:28px 0 60px}
+.edition-note{
+  font-size:14px; color:var(--ink-soft); text-align:center; margin-bottom:28px; font-style:italic;
+}
+.front-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap:36px 40px;
+}
+.front-grid > article{min-width:0}
+.front-grid hr.sep{border:none; border-top:1px solid var(--rule-soft); margin:0 0 14px}
+
+.kicker{
+  display:inline-block;
+  font-size:11px; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--raiz); font-style:italic; margin-bottom:6px;
+}
+.headline{
+  font-family:'Playfair Display', Georgia, serif;
+  font-weight:700;
+  line-height:1.15;
+  margin:0 0 8px;
+}
+.front-grid .headline{font-size:clamp(22px, 3vw, 28px)}
+.front-grid .headline a{text-decoration:none}
+.dek{font-size:16px; color:var(--ink-soft); margin:0 0 10px; font-style:italic}
+.lede{font-size:16px; margin:0 0 10px}
+.readmore{font-size:13px; text-transform:uppercase; letter-spacing:.05em}
+
+/* Artículo */
+.article-head{max-width:720px; margin:0 auto 10px; text-align:left}
+.article-head .headline{font-size:clamp(28px, 5vw, 42px); margin-bottom:10px}
+.article-head .dek{font-size:18px}
+.byline{font-size:13px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.04em; margin:14px 0 0}
+
+.article-body{max-width:720px; margin:26px auto 0}
+.article-body p{margin:0 0 20px; font-size:19px}
+.article-body p:first-of-type::first-letter{
+  font-family:'Playfair Display', Georgia, serif;
+  font-weight:900;
+  font-size:64px;
+  float:left;
+  line-height:.8;
+  padding-right:8px;
+  margin-top:6px;
+}
+
+.share-bar{
+  max-width:720px; margin:34px auto 0; padding-top:18px;
+  border-top:1px solid var(--rule-soft);
+  display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+}
+.share-bar .label{font-size:13px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-soft)}
+.share-btn{
+  display:inline-flex; align-items:center; gap:6px;
+  min-height:40px; padding:0 14px;
+  border:1px solid var(--rule); border-radius:2px;
+  background:transparent; color:var(--ink);
+  font-family:inherit; font-size:13px; letter-spacing:.03em; text-transform:uppercase;
+  text-decoration:none; cursor:pointer;
+}
+.share-btn:hover{background:var(--ink); color:var(--paper); border-color:var(--ink)}
+.share-btn svg{width:15px; height:15px; flex:none}
+
+.back-link{display:inline-block; margin:30px auto 0; max-width:720px; font-size:14px}
+.back-wrap{max-width:720px; margin:0 auto}
+
+/* Hemeroteca */
+.hem-list{list-style:none; margin:0; padding:0; max-width:720px; margin-left:auto; margin-right:auto}
+.hem-list li{padding:14px 0; border-bottom:1px solid var(--rule-soft)}
+.hem-date{font-family:'Playfair Display', serif; font-weight:700; font-size:18px}
+.hem-list a{text-decoration:none}
+
+footer{
+  max-width:var(--max); margin:0 auto; padding:28px 20px 50px;
+  text-align:center; font-size:12px; color:var(--ink-soft);
+  border-top:1px solid var(--rule-soft);
+}
+
+@media (max-width:480px){
+  body{font-size:16px}
+  .article-body p{font-size:17px}
+}
