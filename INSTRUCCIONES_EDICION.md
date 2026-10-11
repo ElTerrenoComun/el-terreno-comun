@@ -75,5 +75,7 @@ Cada artículo lleva: titular, bajada (una frase), sección (por ejemplo
 - Autor de los commits, siempre:
   `El Terreno Común <341140003+ElTerrenoComun@users.noreply.github.com>`.
   Nunca un nombre real ni un correo personal.
+- En las páginas publicadas no debe aparecer en ningún sitio que la edición
+  se genera de forma automática (ni en cabecera, ni en pie, ni en textos).
 - Mensaje de commit: `Edición del AAAA-MM-DD`.
 - `git push` a la rama `main`. GitHub Pages publica solo en un minuto o dos.

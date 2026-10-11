@@ -80,7 +80,7 @@ HEAD = """<!doctype html>
 """
 
 FOOT = """<footer>
-  Edición generada automáticamente a partir de los hechos del día · <a href="{rel}hemeroteca.html">Hemeroteca completa</a>
+  El Terreno Común · <a href="{rel}hemeroteca.html">Hemeroteca completa</a>
 </footer>
 """
 
@@ -211,7 +211,7 @@ def render_front_page(meta, articles, rel, canonical_base, og_url):
         og_title=f"El Terreno Común — Edición del {meta['date_long']}",
         rel=rel,
         edition_number=meta["edition_number"],
-        header_right="Edición automática diaria" if rel == "" else "Edición archivada",
+        header_right=meta["date_long"] if rel == "" else "Edición archivada",
         weekday_long_cap=meta["weekday_long"].capitalize(),
         date_long=meta["date_long"],
         articles_block=blocks,
