@@ -16,8 +16,10 @@ la tarea lo lee en cada ejecución.
 Buscar los hechos más relevantes de la jornada (últimas 24 horas) en política,
 sociedad, economía y cultura, de España e internacionales. Fuentes de partida:
 
-- Prensa generalista: eldiario.es (portada), euronews.com en español, y
-  búsquedas web generales sobre la actualidad del día.
+- Prensa generalista: eldiario.es (portada), theobjective.com (portada),
+  euronews.com en español, y búsquedas web generales sobre la actualidad del día.
+  Consultar medios de distinto signo sirve para encontrar hechos; la lectura
+  de cada hecho es siempre la de El Terreno Común, no la del medio.
 - Cultura y piezas de fondo: jotdown.es.
 - Si un medio no es accesible, se sigue con los demás; no se intenta saltar
   bloqueos.
