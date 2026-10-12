@@ -20,7 +20,8 @@ sociedad, economía y cultura, de España e internacionales. Fuentes de partida:
   euronews.com en español, y búsquedas web generales sobre la actualidad del día.
   Consultar medios de distinto signo sirve para encontrar hechos; la lectura
   de cada hecho es siempre la de El Terreno Común, no la del medio.
-- Cultura y piezas de fondo: jotdown.es.
+- Cultura, ensayo y piezas de fondo: jotdown.es y ethic.es (esta última
+  también para ciencia, medio ambiente y geopolítica).
 - Si un medio no es accesible, se sigue con los demás; no se intenta saltar
   bloqueos.
 
