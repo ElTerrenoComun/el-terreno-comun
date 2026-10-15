@@ -39,21 +39,28 @@ un hecho nuevo y sustancial.
 
 ## 4. Escritura
 
-Cada artículo se escribe con la skill `el-terreno-comun-voz`, con estas
-precisiones, que prevalecen sobre la skill:
+Antes de escribir, leer entero `GUIA_POSICIONAMIENTO.md`. Fija desde dónde se
+escribe: las tesis de fondo de la publicación, cómo se toma partido y los
+límites. Cada artículo se escribe con la skill `el-terreno-comun-voz` y con esa
+guía, y estas precisiones prevalecen sobre la skill:
 
+- **Posicionado e incisivo.** El artículo toma partido, atribuye
+  responsabilidades y nombra a los responsables cuando los hechos los señalan.
+  Por momentos puede ser agresivo. Se acaba la distancia que reparte la culpa a
+  partes iguales: cada pieza llega a una conclusión con destinatario. La guía
+  explica cómo.
 - **Nada de confrontación de dos relatos.** No se estructura el artículo como
   "el relato de unos / el relato de otros", ni "por un lado / por otro", ni se
   reparte el texto entre dos posiciones contrapuestas. El artículo sigue una
-  sola línea de lectura: el hecho, la estructura que hay detrás, la
-  contradicción que revela, y se detiene donde el análisis se agota.
-- **Tono:** el registro analítico de la voz, frío, con ironía clásica y
-  irritación de fondo. No se busca la frase lapidaria por sí misma.
+  sola línea de lectura: el hecho, la estructura que hay detrás, quién se
+  beneficia de ella, y se detiene donde el análisis se agota.
 - **Extensión:** entre 600 y 1.000 palabras por artículo. La decide el
   argumento.
-- **Voz normal o voz raíz** según encaje mejor con cada hecho. Lo habitual es
-  una o dos piezas en voz raíz por edición, cuando el hecho toca el cuerpo, lo
-  íntimo o lo vivido.
+- **La mitad de los artículos, en voz raíz.** Con seis artículos, tres en voz
+  raíz; con siete, cuatro (la mitad redondeada hacia arriba). Se reservan para
+  los hechos que tocan el cuerpo, lo íntimo o lo vivido. La voz raíz no rebaja
+  el posicionamiento. En ella no se inventan vivencias ni datos biográficos de
+  quien escribe (ver la guía).
 - Se mantienen las prohibiciones de la skill: sin subtítulos, sin soluciones,
   sin moraleja ni llamada a la acción, sin citar la fuente de la noticia, sin
   nombrar a los autores que construyeron la voz.
