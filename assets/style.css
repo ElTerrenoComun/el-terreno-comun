@@ -167,3 +167,21 @@ footer{
   body{font-size:16px}
   .article-body p{font-size:17px}
 }
+
+/* Pieza única (ucronías) */
+.front-single{max-width:760px; margin:0 auto}
+.front-feature .headline{font-size:clamp(32px, 5.5vw, 52px); margin:6px 0 12px}
+.front-feature .dek{font-size:20px}
+.front-feature .lede{font-size:18px; margin:0 0 16px}
+.front-feature .readmore{display:inline-block; margin-top:6px; font-size:14px}
+.divergence{
+  font-size:15px; line-height:1.5; color:var(--ink-soft);
+  border-left:2px solid var(--raiz); padding:2px 0 2px 12px; margin:10px 0 0;
+}
+.divergence span{font-variant:small-caps; letter-spacing:.04em; color:var(--raiz)}
+.article-body p.section-break{
+  text-align:center; font-size:22px; letter-spacing:.3em; margin:30px 0; color:var(--ink-soft);
+}
+.article-body p.section-break::first-letter{font:inherit; float:none; padding:0; margin:0}
+.front-feature .headline a{text-decoration:none}
+.front-feature .byline{margin:14px 0 20px}

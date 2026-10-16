@@ -19,10 +19,13 @@ El JSON de entrada tiene esta forma:
       "title": "Titular del artículo",
       "dek": "Una frase de bajada.",
       "section": "Política — España",
-      "voice": "normal",            # "normal" o "raiz"
+      "voice": "normal",            # "normal", "raiz" o "ucronia"
+      "origin": "historia",         # solo ucronías: "actualidad" o "historia"
+      "divergence": "Qué pasó y qué cambia.",  # solo ucronías (obligatorio)
       "paragraphs": [
         "Primer párrafo...",
         "Segundo párrafo...",
+        "* * *",                    # separador de partes (opcional)
         "..."
       ]
     },
@@ -90,6 +93,7 @@ ARTICLE_TEMPLATE = HEAD + """
     {kicker}
     <h1 class="headline">{title}</h1>
     <p class="dek">{dek}</p>
+    {divergence}
     <p class="byline">{section}</p>
   </div>
 
@@ -126,7 +130,7 @@ FRONT_TEMPLATE = HEAD + """
 <main class="wrap">
   <p class="edition-note">{weekday_long_cap}, {date_long}</p>
 
-  <div class="front-grid">
+  <div class="{grid_class}">
 {articles_block}
   </div>
 </main>
@@ -149,12 +153,39 @@ def esc(s):
     return html.escape(s, quote=True)
 
 
+KICKERS = {"raiz": "Voz raíz", "ucronia": "Ucronía"}
+SECTION_BREAK = "* * *"
+
+
+def kicker_html(article, trailing=""):
+    label = KICKERS.get(article.get("voice", "normal"))
+    return f'<span class="kicker">{label}</span>{trailing}' if label else ""
+
+
+def divergence_html(article):
+    d = article.get("divergence")
+    if not d:
+        return ""
+    return f'<p class="divergence"><span>Punto de divergencia.</span> {esc(d)}</p>'
+
+
+def reading_minutes(article):
+    words = sum(len(p.split()) for p in article["paragraphs"])
+    return max(1, round(words / 220))
+
+
 def render_paragraphs(paragraphs):
-    return "\n".join(f"    <p>{esc(p)}</p>" for p in paragraphs)
+    out = []
+    for p in paragraphs:
+        if p.strip() == SECTION_BREAK:
+            out.append('    <p class="section-break" aria-hidden="true">⁂</p>')
+        else:
+            out.append(f"    <p>{esc(p)}</p>")
+    return "\n".join(out)
 
 
 def render_article_file(article, meta, rel, canonical_base):
-    kicker = '<span class="kicker">Voz raíz</span>' if article["voice"] == "raiz" else ""
+    kicker = kicker_html(article)
     share_text = urllib.parse.quote(article["title"])
     canonical_url = f"{canonical_base}/articulos/{meta['date']}-{article['slug']}.html"
     share_url = urllib.parse.quote(canonical_url, safe="")
@@ -168,7 +199,8 @@ def render_article_file(article, meta, rel, canonical_base):
         header_right=meta["date_long"],
         kicker=kicker,
         dek=esc(article["dek"]),
-        section=esc(article["section"]),
+        divergence=divergence_html(article),
+        section=esc(article["section"]) + (f" · Lectura: {reading_minutes(article)} min" if article.get("voice") == "ucronia" else ""),
         paragraphs=render_paragraphs(article["paragraphs"]),
         share_text=share_text,
         share_url=share_url,
@@ -179,7 +211,7 @@ def render_article_file(article, meta, rel, canonical_base):
 
 
 def render_front_article_block(article, meta, rel=""):
-    kicker = '<span class="kicker">Voz raíz</span>\n      ' if article["voice"] == "raiz" else ""
+    kicker = kicker_html(article, "\n      ")
     first_para = article["paragraphs"][0]
     if len(first_para) <= 280:
         lede = first_para
@@ -202,8 +234,37 @@ def render_front_article_block(article, meta, rel=""):
     )
 
 
+def render_feature_block(article, meta, rel=""):
+    body = [p for p in article["paragraphs"] if p.strip() != SECTION_BREAK]
+    lede, total = [], 0
+    for para in body:
+        if total and total + len(para) > 900:
+            break
+        lede.append(para)
+        total += len(para)
+        if total > 500:
+            break
+    href = f"{rel}articulos/{meta['date']}-{article['slug']}.html"
+    label = "Leer la ucronía completa" if article.get("voice") == "ucronia" else "Leer el texto completo"
+    ledes = "\n".join(f'      <p class="lede">{esc(x)}</p>' for x in lede)
+    return (
+        '    <article class="front-feature">\n'
+        f'      {kicker_html(article)}\n'
+        f'      <h2 class="headline"><a href="{href}">{esc(article["title"])}</a></h2>\n'
+        f'      <p class="dek">{esc(article["dek"])}</p>\n'
+        f'      {divergence_html(article)}\n'
+        f'      <p class="byline">{esc(article["section"])} · Lectura: {reading_minutes(article)} min</p>\n'
+        f'{ledes}\n'
+        f'      <a class="readmore" href="{href}">{label} →</a>\n'
+        '    </article>\n'
+    )
+
+
 def render_front_page(meta, articles, rel, canonical_base, og_url):
-    blocks = "\n".join(render_front_article_block(a, meta, rel) for a in articles)
+    if len(articles) == 1:
+        blocks = render_feature_block(articles[0], meta, rel)
+    else:
+        blocks = "\n".join(render_front_article_block(a, meta, rel) for a in articles)
     return FRONT_TEMPLATE.format(
         title=f"Edición del {meta['date_long']}",
         description="Los hechos del día, leídos sin épica.",
@@ -215,6 +276,7 @@ def render_front_page(meta, articles, rel, canonical_base, og_url):
         weekday_long_cap=meta["weekday_long"].capitalize(),
         date_long=meta["date_long"],
         articles_block=blocks,
+        grid_class="front-single" if len(articles) == 1 else "front-grid",
         canonical_base=canonical_base,
         og_url=og_url,
     )

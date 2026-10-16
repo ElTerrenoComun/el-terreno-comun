@@ -58,13 +58,14 @@ archivos nuevos y reescribe `index.html` y `hemeroteca.html`.
 6. La URL del sitio está fijada en `DEFAULT_BASE` dentro de `generate_edition.py`;
    si algún día usas un dominio propio, cámbiala ahí.
 
-## La tarea diaria
+## La tarea programada
 
-Una tarea programada de Claude se ejecuta cada día a las 20:00 (hora de Madrid)
-y sigue la pauta de `INSTRUCCIONES_EDICION.md`: busca los hechos del día, escribe
-al menos seis artículos con la voz de El Terreno Común, genera las páginas con
-`generate_edition.py` y publica. Para cambiar el criterio editorial basta con
-editar ese archivo.
+Desde el 17 de octubre de 2026 el sitio publica una ucronía cada tres días: un
+único texto largo (3.000–5.000 palabras) que parte de un hecho real, de la
+actualidad o de la historia, y lo hace ocurrir de otra manera. La tarea se
+ejecuta cada día a las 19:16 (hora de Madrid), comprueba si toca publicar y, si
+toca, sigue `INSTRUCCIONES_EDICION.md` y `GUIA_POSICIONAMIENTO.md`. Las
+ediciones diarias de artículos anteriores siguen en la hemeroteca.
 
 ## Diseño
 

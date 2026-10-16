@@ -1,91 +1,109 @@
-# Instrucciones para generar la edición diaria
+# Instrucciones para generar cada entrega
 
-Este documento es la pauta que sigue la tarea programada cada día a las 20:00
-(hora de Madrid). Si quieres cambiar el criterio editorial, cambia este archivo:
-la tarea lo lee en cada ejecución.
+Desde el 17 de octubre de 2026, El Terreno Común publica **una ucronía cada
+tres días**: un único texto largo que imagina cómo habría sido la historia si un
+hecho hubiera ocurrido de otra manera. Las ediciones diarias de artículos
+anteriores se conservan en la hemeroteca.
 
-## 1. Fecha y número de edición
+La tarea programada se ejecuta todos los días a las 19:16 (hora de Madrid) y
+decide aquí si le toca publicar. Si quieres cambiar el criterio, cambia este
+archivo: la tarea lo lee en cada ejecución.
+
+## 1. ¿Toca publicar hoy?
 
 - La fecha es la de hoy en Madrid (Europe/Madrid).
-- Si ya existe `ediciones/AAAA-MM-DD.html` para hoy, no se genera nada: la
-  edición del día ya está publicada.
+- Mirar en `ediciones_json/` la última entrega cuya pieza tenga
+  `"voice": "ucronia"`.
+- Si existe y se publicó hace menos de tres días (por ejemplo, el día 17 →
+  la siguiente es el 20), **no se hace nada más**: la ejecución termina aquí.
+- Si no hay ninguna ucronía todavía, o han pasado tres días o más, se publica.
+- Si ya existe `ediciones/AAAA-MM-DD.html` para hoy, tampoco se hace nada.
 - El número de edición es el número de entradas de `hemeroteca.html` más uno.
 
-## 2. Búsqueda de hechos
+## 2. El punto de divergencia
 
-Buscar los hechos más relevantes de la jornada (últimas 24 horas) en política,
-sociedad, economía y cultura, de España e internacionales. Fuentes de partida:
+Cada ucronía parte de un **punto de divergencia**: un hecho real, concreto y
+fechado que en el texto ocurre de otra manera.
 
-- Prensa generalista: eldiario.es (portada), theobjective.com (portada),
-  euronews.com en español, y búsquedas web generales sobre la actualidad del día.
-  Consultar medios de distinto signo sirve para encontrar hechos; la lectura
-  de cada hecho es siempre la de El Terreno Común, no la del medio.
-- Cultura, ensayo y piezas de fondo: jotdown.es y ethic.es (esta última
-  también para ciencia, medio ambiente y geopolítica).
-- Si un medio no es accesible, se sigue con los demás; no se intenta saltar
-  bloqueos.
+- **Se alterna el origen.** Una entrega parte de la actualidad (un hecho de
+  las últimas semanas: una votación, un decreto, una sentencia, un estreno,
+  una dimisión que no se produjo...) y la siguiente de la historia (cualquier
+  época, con preferencia por la de España: 1492, 1808, 1898, 1931, 1936, 1977,
+  1981, 2004, 2008, 2011...). Para saber cuál toca, mirar el campo `"origin"`
+  de la última ucronía (`"actualidad"` o `"historia"`) y usar el otro. Solo se
+  repite si el hecho del momento lo justifica claramente.
+- Para la actualidad, buscar los hechos en: eldiario.es, theobjective.com,
+  euronews.com en español, jotdown.es, ethic.es y búsquedas web. Para la
+  historia, documentarse en fuentes fiables antes de escribir.
+- No repetir un punto de divergencia ni un tema ya tratado en las cinco
+  entregas anteriores.
+- El mejor punto de divergencia no es el más espectacular, sino el que deja
+  ver una estructura: lo que habría cambiado, y sobre todo lo que **no** habría
+  cambiado aunque el hecho fuera otro.
 
-Abrir las páginas de las que se toman datos: un titular o un fragmento de
-búsqueda no basta para escribir un artículo.
+## 3. Escritura
 
-Evitar repetir un tema tratado en las tres ediciones anteriores, salvo que haya
-un hecho nuevo y sustancial.
+Antes de escribir, leer entero `GUIA_POSICIONAMIENTO.md` y cargar la skill
+`el-terreno-comun-voz`. La ucronía es ficción, pero mira el mundo desde la línea
+de la publicación: posicionada, incisiva, sin equidistancias. Lo que dicen este
+archivo y la guía prevalece sobre la skill.
 
-## 3. Selección
+- **Extensión:** entre 3.000 y 5.000 palabras.
+- **Forma libre**, la que mejor sirva a cada historia: relato con personajes y
+  escenas, crónica periodística escrita desde el mundo alternativo, diario,
+  cartas, informe oficial, reportaje, discurso, una mezcla. Cada entrega puede
+  ser distinta de la anterior.
+- **Voz:** la de El Terreno Común. Los registros analítico y raíz pueden
+  convivir dentro del mismo texto según lo pida la forma.
+- **Rigor en la parte real.** Todo lo anterior al punto de divergencia es
+  historia verdadera y debe ser exacto: fechas, cargos, lugares, contexto. La
+  verosimilitud del mundo alternativo depende de eso. A partir del punto de
+  divergencia, la invención debe seguir una lógica plausible: consecuencias
+  políticas, económicas y sociales coherentes con lo que se sabe de esa época
+  y esos actores.
+- **Personas reales.** Las figuras públicas pueden aparecer en su papel
+  público. En las ucronías de actualidad, los protagonistas de las escenas
+  íntimas son personajes inventados. No se atribuyen a personas reales vivas
+  delitos, escándalos privados ni declaraciones que puedan pasar por reales
+  fuera de la ficción.
+- **Sin subtítulos intermedios.** Para separar partes, escenas o cambios de
+  tiempo se usa un párrafo que contenga solo `* * *`, que la web convierte en
+  un separador.
+- Sin moraleja ni llamada a la acción. El final cae seco, en una imagen.
+- No se citan las fuentes ni se nombra a los autores que construyeron la voz.
 
-- **Al menos seis artículos.** Más si la jornada lo justifica.
-- Repartidos entre política, sociedad, economía, cultura e internacional. Al
-  menos uno de cultura.
+## 4. Ficha de la entrega
 
-## 4. Escritura
+El JSON de la edición tiene la forma que describe la cabecera de
+`generate_edition.py`, con **un único artículo** y estos campos:
 
-Antes de escribir, leer entero `GUIA_POSICIONAMIENTO.md`. Fija desde dónde se
-escribe: las tesis de fondo de la publicación, cómo se toma partido y los
-límites. Cada artículo se escribe con la skill `el-terreno-comun-voz` y con esa
-guía, y estas precisiones prevalecen sobre la skill:
-
-- **Posicionado e incisivo.** El artículo toma partido, atribuye
-  responsabilidades y nombra a los responsables cuando los hechos los señalan.
-  Por momentos puede ser agresivo. Se acaba la distancia que reparte la culpa a
-  partes iguales: cada pieza llega a una conclusión con destinatario. La guía
-  explica cómo.
-- **Nada de confrontación de dos relatos.** No se estructura el artículo como
-  "el relato de unos / el relato de otros", ni "por un lado / por otro", ni se
-  reparte el texto entre dos posiciones contrapuestas. El artículo sigue una
-  sola línea de lectura: el hecho, la estructura que hay detrás, quién se
-  beneficia de ella, y se detiene donde el análisis se agota.
-- **Extensión:** entre 600 y 1.000 palabras por artículo. La decide el
-  argumento.
-- **La mitad de los artículos, en voz raíz.** Con seis artículos, tres en voz
-  raíz; con siete, cuatro (la mitad redondeada hacia arriba). Se reservan para
-  los hechos que tocan el cuerpo, lo íntimo o lo vivido. La voz raíz no rebaja
-  el posicionamiento. En ella no se inventan vivencias ni datos biográficos de
-  quien escribe (ver la guía).
-- Se mantienen las prohibiciones de la skill: sin subtítulos, sin soluciones,
-  sin moraleja ni llamada a la acción, sin citar la fuente de la noticia, sin
-  nombrar a los autores que construyeron la voz.
-- **Exactitud:** solo hechos comprobados en las fuentes. Lo que sea una
-  acusación o una investigación abierta se dice así. No se atribuyen delitos
-  no juzgados a personas con nombre y apellidos.
-
-Cada artículo lleva: titular, bajada (una frase), sección (por ejemplo
-"Política — España", "Economía", "Cultura", "Internacional — Europa"), voz
-("normal" o "raiz") y los párrafos.
+- `"slug"`: título corto en minúsculas con guiones.
+- `"title"`: titular.
+- `"dek"`: una frase de bajada.
+- `"section"`: `"Ucronía — "` más lugar y año del punto de divergencia (por
+  ejemplo `"Ucronía — España, 1981"`).
+- `"voice"`: siempre `"ucronia"`.
+- `"origin"`: `"actualidad"` o `"historia"`.
+- `"divergence"`: una o dos frases que explican qué ocurrió en realidad y qué
+  ocurre de otra manera en el texto. Es lo que deja claro al lector que está
+  ante una ficción, así que es obligatorio.
+- `"paragraphs"`: los párrafos, con `"* * *"` como separador cuando haga falta.
 
 ## 5. Generación
 
-1. Guardar los artículos en `ediciones_json/edicion_AAAA-MM-DD.json` con la
-   forma que describe la cabecera de `generate_edition.py`.
+1. Guardar la entrega en `ediciones_json/edicion_AAAA-MM-DD.json`.
 2. Ejecutar `python3 generate_edition.py ediciones_json/edicion_AAAA-MM-DD.json`.
-3. Comprobar que `index.html` muestra los artículos nuevos y que cada archivo de
-   `articulos/` se abre bien.
+   Con un solo artículo, la portada lo muestra destacado, con su punto de
+   divergencia y el tiempo de lectura.
+3. Comprobar que `index.html` muestra la entrega nueva y que la página del
+   artículo se abre bien.
 
 ## 6. Publicación
 
 - Autor de los commits, siempre:
   `El Terreno Común <341140003+ElTerrenoComun@users.noreply.github.com>`.
   Nunca un nombre real ni un correo personal.
-- En las páginas publicadas no debe aparecer en ningún sitio que la edición
-  se genera de forma automática (ni en cabecera, ni en pie, ni en textos).
-- Mensaje de commit: `Edición del AAAA-MM-DD`.
+- En las páginas publicadas no debe aparecer en ningún sitio que los textos se
+  generan de forma automática.
+- Mensaje de commit: `Ucronía del AAAA-MM-DD`.
 - `git push` a la rama `main`. GitHub Pages publica solo en un minuto o dos.
