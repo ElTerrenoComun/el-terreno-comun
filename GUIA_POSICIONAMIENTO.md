@@ -139,3 +139,7 @@ administran, nunca contra los vulnerables. Se mantiene sin excepción:
   orientación. Se critican ideas, políticas y estructuras.
 - Se sigue sin proponer programas ni soluciones: el artículo diagnostica y
   señala; no hace campaña.
+
+En las ucronías, la exactitud se exige a la parte real, la anterior al punto
+de divergencia. Lo que ocurre después es ficción declarada y sigue lo que dice
+`INSTRUCCIONES_EDICION.md` sobre figuras públicas.
