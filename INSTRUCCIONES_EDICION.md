@@ -35,9 +35,21 @@ fechado que en el texto ocurre de otra manera.
   de escribir.
 - No repetir un punto de divergencia, una época o un país ya tratados en las
   cinco ucronías anteriores.
-- El mejor punto de divergencia no es el más espectacular, sino el que deja
-  ver una estructura: lo que habría cambiado y, sobre todo, lo que **no** habría
-  cambiado aunque el hecho fuera otro.
+- **El cambio tiene que abrir un camino de verdad distinto.** Lo que ocurre
+  después del punto de divergencia debe alejarse de forma clara y creciente de
+  lo que pasó en la realidad: otras vidas, otro país, otro mundo. Nunca una
+  historia en la que, pese al cambio, todo acaba igual. La fuerza de la
+  ucronía está en el contraste que el lector percibe por sí solo con el mundo
+  que conoce, y ese contraste tiene que ser potente, que conmocione.
+- Elegir puntos de divergencia que lo permitan: decisiones que pudieron tomarse
+  al revés (una votación, una orden, una firma, un disparo que falla, una
+  dimisión, un acuerdo que se rompe) y cuyas consecuencias se extienden a la
+  vida cotidiana de la gente.
+- El mundo alternativo no es una utopía: tiene costes, sombras y
+  contradicciones propias, y eso lo hace creíble. Pero es otro mundo.
+- El contraste se construye con detalles concretos de la vida de los
+  personajes (dónde viven, qué pagan, a qué temen, qué les parece normal),
+  no con explicaciones. El último párrafo debe dejarlo a la vista.
 
 ## 3. Escritura
 
