@@ -46,26 +46,34 @@ Antes de escribir, leer entero `GUIA_POSICIONAMIENTO.md` y cargar la skill
 de la publicación: posicionada, incisiva, sin equidistancias. Lo que dicen este
 archivo y la guía prevalece sobre la skill.
 
-- **Extensión:** entre 3.000 y 5.000 palabras.
-- **Forma libre**, la que mejor sirva a cada historia: relato con personajes y
-  escenas, crónica escrita desde el mundo alternativo, diario, cartas, informe
-  oficial, reportaje, discurso, actas, una mezcla. Variar la forma de una
-  entrega a otra.
-- **Voz:** la de El Terreno Común. Los registros analítico y raíz pueden
-  convivir dentro del mismo texto según lo pida la forma.
-- **Rigor en la parte real.** Todo lo anterior al punto de divergencia es
-  historia verdadera y debe ser exacto: fechas, cargos, lugares, cifras,
-  contexto. La verosimilitud del mundo alternativo depende de eso. A partir del
-  punto de divergencia, la invención sigue una lógica plausible: consecuencias
-  políticas, económicas y sociales coherentes con lo que se sabe de esa época
-  y de sus actores.
-- **Figuras y personajes públicos:** pueden aparecer con libertad, con nombre
-  y apellidos, actuar, hablar y decidir en el mundo alternativo. Las personas
-  privadas que hayan sido noticia (víctimas, testigos, vecinos) no se nombran:
-  se describen.
-- **Sin subtítulos intermedios.** Para separar partes, escenas o cambios de
-  tiempo se usa un párrafo que contenga solo `* * *`, que la web convierte en
-  un separador.
+- **Extensión:** entre 1.500 y 2.500 palabras.
+- **Se cuenta el mundo alternativo tal cual, sin compararlo con la historia
+  real.** Nada de "en la realidad", "en el otro mundo", "lo que de verdad
+  ocurrió" ni fichas o notas explicativas. El texto vive dentro de su propia
+  historia, como si fuera la única. El lector reconoce el punto de divergencia
+  porque la historia se lo cuenta, no porque se le explique.
+- **Personajes inventados.** La ucronía se cuenta a través de personajes de
+  ficción, gente corriente cuyas vidas muestran lo que ese cambio produce:
+  un empleado, una vecina, un hijo, una funcionaria, un soldado. Ellos llevan
+  la historia y hacen comprensible lo que pasa.
+- **Nombres reales, los mínimos.** Solo los imprescindibles para situar el
+  hecho (una empresa, un país, un cargo). Mejor "el presidente" o "el
+  Gobierno" que una lista de nombres propios. No se da por supuesto que el
+  lector conozca el acontecimiento.
+- **Comprensible para un lector amplio.** Lenguaje claro, frases no muy
+  largas, escenas concretas, diálogos cuando sirvan. El contexto necesario se
+  da dentro de la propia historia, de forma natural, sin explicaciones
+  técnicas. Que se entienda sin haber leído la prensa de aquel momento.
+- **Forma libre**, la que mejor sirva a cada historia: relato, crónica escrita
+  desde ese mundo, diario, cartas, una mezcla. Variar la forma de una entrega
+  a otra.
+- **Voz:** la de El Terreno Común. El narrador puede detenerse a pensar lo que
+  la historia muestra, pero en pocas frases y sin convertir el relato en
+  ensayo.
+- **Rigor:** el contexto real que aparece (época, lugares, cómo funcionaban
+  las cosas) debe ser exacto, y lo que se inventa sigue una lógica plausible.
+- **Sin subtítulos intermedios.** Para separar partes, escenas o saltos en el
+  tiempo se usa un párrafo que contenga solo `* * *`.
 - Sin moraleja ni llamada a la acción. El final cae seco, en una imagen.
 - No se citan las fuentes ni se nombra a los autores que construyeron la voz.
 
@@ -78,17 +86,12 @@ describe la cabecera de `generate_ucronia.py`:
   `"19 de octubre de 2026"`).
 - `"number"`: número de línea temporal.
 - `"slug"`: título corto en minúsculas con guiones.
-- `"title"`: titular. `"dek"`: una frase de bajada.
-- `"place"`, `"divergence_date"`, `"year"`: lugar, fecha completa y año del
-  punto de divergencia.
-- `"origin"`: `"actualidad"` o `"historia"`.
-- `"form"`: la forma elegida (`"Crónica"`, `"Relato"`, `"Diario"`, `"Cartas"`...).
-- `"real"`: una o dos frases sobre lo que ocurrió de verdad.
-- `"alternate"`: una o dos frases sobre lo que ocurre de otra manera en el texto.
+- `"title"`: titular. `"dek"`: una frase de bajada que invite a leer sin
+  explicar la comparación con la historia real.
+- `"place"` y `"year"`: dónde transcurre y año del punto de divergencia.
+- `"origin"`: `"actualidad"` o `"historia"` (no se muestra en la web).
+- `"form"`: la forma elegida (`"Relato"`, `"Crónica"`, `"Diario"`, `"Cartas"`...).
 - `"paragraphs"`: los párrafos, con `"* * *"` como separador cuando haga falta.
-
-`"real"` y `"alternate"` son obligatorios: forman la ficha del punto de
-divergencia que encabeza cada ucronía en la web.
 
 ## 5. Generación
 

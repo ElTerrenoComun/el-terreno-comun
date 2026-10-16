@@ -142,4 +142,4 @@ administran, nunca contra los vulnerables. Se mantiene sin excepción:
 
 En las ucronías, la exactitud se exige a la parte real, la anterior al punto
 de divergencia. Lo que ocurre después es ficción declarada y sigue lo que dice
-`INSTRUCCIONES_EDICION.md` sobre figuras públicas.
+`INSTRUCCIONES_EDICION.md`.

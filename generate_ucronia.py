@@ -16,13 +16,10 @@ Cada ucronía es un archivo ucronias_json/AAAA-MM-DD-slug.json con esta forma:
   "slug": "la-crisis-que-no-tuvo-fecha",
   "title": "Titular",
   "dek": "Una frase de bajada.",
-  "place": "Nueva York",                # lugar del punto de divergencia
-  "divergence_date": "14 de septiembre de 2008",
+  "place": "Nueva York",                # dónde transcurre (o empieza) la ucronía
   "year": 2008,                         # año del punto de divergencia
-  "origin": "historia",                 # "historia" o "actualidad"
-  "form": "Crónica",                    # forma elegida: relato, crónica, diario...
-  "real": "Lo que ocurrió de verdad, en una o dos frases.",
-  "alternate": "Lo que ocurre de otra manera en esta ucronía.",
+  "origin": "historia",                 # "historia" o "actualidad" (uso interno)
+  "form": "Relato",                     # forma elegida: relato, crónica, diario...
   "paragraphs": [
     "Primer párrafo...",
     "* * *",                            # separador de partes
@@ -113,20 +110,6 @@ def footer(rel):
 """
 
 
-def ficha(u):
-    return f"""<section class="ficha" aria-label="Punto de divergencia">
-  <p class="ficha-head">Punto de divergencia · {esc(u['place'])} · {esc(u['divergence_date'])}</p>
-  <div class="ficha-row">
-    <p class="ficha-label"><span class="line line-real" aria-hidden="true"></span>Lo que ocurrió</p>
-    <p class="ficha-text">{esc(u['real'])}</p>
-  </div>
-  <div class="ficha-row">
-    <p class="ficha-label alt"><span class="line line-alt" aria-hidden="true"></span>Lo que ocurre aquí</p>
-    <p class="ficha-text">{esc(u['alternate'])}</p>
-  </div>
-</section>"""
-
-
 def kicker(u):
     return f"Ucronía · {esc(u['place'])}, {esc(u['year'])} · {esc(u['form'])}"
 
@@ -164,7 +147,6 @@ def render_page(u):
       <p class="kicker">{kicker(u)}</p>
       <h1 class="headline">{esc(u['title'])}</h1>
       <p class="dek">{esc(u['dek'])}</p>
-      {ficha(u)}
       <p class="byline">Lectura: {minutes(u)} min</p>
     </header>
     <div class="piece-body">
@@ -222,7 +204,6 @@ def render_index(items):
     <p class="kicker">{kicker(latest)}</p>
     <h1 class="headline"><a href="{href}">{esc(latest['title'])}</a></h1>
     <p class="dek">{esc(latest['dek'])}</p>
-    {ficha(latest)}
     <p class="byline">Lectura: {minutes(latest)} min</p>
 {ledes}
     <p class="readmore"><a href="{href}">Leer la ucronía completa →</a></p>

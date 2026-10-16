@@ -1,7 +1,7 @@
 # El Terreno Común — Ucronías
 
 Web estática y ligera, sin frameworks: *Crónicas de la historia que no ocurrió*.
-Cada tres días publica una ucronía: un texto largo (3.000–5.000 palabras) que
+Cada tres días publica una ucronía: un relato de 1.500–2.500 palabras, contado por personajes inventados, que
 parte de un hecho real, de la actualidad o de la historia y de cualquier parte
 del mundo, y lo hace ocurrir de otra manera.
 
@@ -36,6 +36,5 @@ comprueba si han pasado tres días desde la última ucronía y, si toca, sigue
 Archivo de líneas temporales: papel de archivo, titulares en Cormorant
 Garamond, texto en Source Serif 4 y datos en IBM Plex Mono. El motivo gráfico
 es una línea que se bifurca: la continua es la historia real; la discontinua,
-en rojo óxido, la que no ocurrió. Cada ucronía abre con una ficha de su punto
-de divergencia, "Lo que ocurrió" frente a "Lo que ocurre aquí". Modo oscuro
+en rojo óxido, la que no ocurrió. Modo oscuro
 automático.
